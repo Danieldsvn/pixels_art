@@ -1,3 +1,7 @@
+#black {
+    color: white;
+    background-color: black;
+}
 #blue {
     background-color: blue;
 }
@@ -6,9 +10,6 @@
 }
 #red {
     background-color: red;
-}
-#yellow {
-    background-color: yellow;
 }
 .color {
     border: black solid 1px;
