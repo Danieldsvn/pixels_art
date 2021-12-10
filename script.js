@@ -1,4 +1,6 @@
 
+
+// Seleciona cor preta ao carregar a página
 window.onload = blackSet();
 
 function blackSet() {
@@ -8,6 +10,7 @@ function blackSet() {
 
  let colorsArray = document.getElementsByClassName('color');
 
+// Prepara a seleção de cores para aplicar nos pixels.
 function changeColor() {    
     for (let i = 0; i < colorsArray.length; i += 1) {   
         colorsArray[i].addEventListener('click', function(event){
@@ -18,6 +21,8 @@ function changeColor() {
     )
 }
 };
+
+// Aplica cores nos pixels por clique conforme cor selecionada.
 changeColor();
 let pixelCollection = document.getElementsByClassName('pixel');
 
@@ -32,3 +37,15 @@ function colorPixel() {
     
 };
 colorPixel();
+
+//Cria botão que  limpa os pixels e o torna branco novamente.
+
+let button = document.getElementById('clear-board');
+
+button.addEventListener('click', function() {
+    let board = document.getElementsByClassName('pixel');
+    for (i = 0; i < board.length; i += 1) {
+        board[i].style.backgroundColor = 'white';
+    }
+});
+
