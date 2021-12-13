@@ -131,7 +131,7 @@ cleanButton.addEventListener('click', function() {
  input.id = 'board-size';
  input.placeholder = 'Tamanho do quadro';
  input.type = 'number';
- input.min = '0';
+ input.min = '1';
  divColorPalette.after(input);
 
  // Cria botão para implementar o input
