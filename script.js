@@ -9,15 +9,15 @@ body.appendChild(h1Title);
 //requisito 2
 
 // cria elemento div com id color-pallet
-let divColorPalett = document.createElement('div');
-divColorPalett.id = 'color-palett';
-body.appendChild(divColorPalett);
+let divColorPalette = document.createElement('div');
+divColorPalette.id = 'color-palette';
+body.appendChild(divColorPalette);
 // cria elementos div com class color
 for (let i = 1; i <= 4; i += 1) {
-    let colorSpan = document.createElement('span');
-    colorSpan.className = 'color';
-    colorSpan.style.border = 'solid black 1px';
-    divColorPalett.appendChild(colorSpan);
+    let colorDiv = document.createElement('div');
+    colorDiv.className = 'color';
+    colorDiv.style.border = 'solid black 1px';
+    divColorPalette.appendChild(colorDiv);
 
 }
 let colorsToChoose = document.getElementsByClassName('color');
@@ -53,7 +53,7 @@ function blackSet() {
  body.appendChild(divPixelBoard);
 
 
-// requisito 5
+// requisito 5: Está incorporado ao requisito 10
 
  // Cria elementos pixels 5x5
  function pixelsCreator() {
@@ -105,22 +105,76 @@ function colorPixel() {
     }
     
 };
+
 colorPixel();
 
 // Requisito 9
 // Cria botão que  limpa os pixels e o torna branco novamente.
 
 
-let button = document.createElement('button');
-button.id = 'clear-board';  
-button.innerText = 'Limpar';
-divColorPalett.after(button);
+let cleanButton = document.createElement('button');
+cleanButton.id = 'clear-board';  
+cleanButton.innerText = 'Limpar';
+divColorPalette.after(cleanButton);
 
-button.addEventListener('click', function() {
+cleanButton.addEventListener('click', function() {
     let board = document.getElementsByClassName('pixel');
     for (i = 0; i < board.length; i += 1) {
         board[i].style.backgroundColor = 'white';
     }
 });
 
+ // Requisito 10:
+ // Cria input para definir tamanho do quadro
+
+ let input = document.createElement('input');
+ input.id = 'board-size';
+ input.placeholder = 'Tamanho do quadro';
+ input.type = 'number';
+ input.min = '0';
+ divColorPalette.after(input);
+
+ // Cria botão para implementar o input
+
+ let vqvButton = document.createElement('button');
+ vqvButton.id = 'generate-board';
+ vqvButton.innerText = 'VQV'
+ input.after(vqvButton);
+
+// Cria quadro baseado no valor do input usando o botão VQV. 
+
+function makeBoard() {
+vqvButton.addEventListener('click', function pixelsCreator() {
+    let allPixels = document.getElementsByClassName('pixel')
+    for (let k = allPixels.length - 1; k >= 0; k -= 1) {
+        allPixels[k].remove();
+    }    
+    if ( input.value.length == 0) {
+        return alert('Board inválido!');
+    }    
+    else {
+        let boardSize = input.value;
+        if (input.value < 5) {
+            boardSize = 5;
+        }
+        if (input.value > 50) {
+            boardSize = 50;
+        }        
+        for (i = 1; i <= boardSize; i += 1) {
+            let divPixelBoardLine = document.createElement('div');
+            divPixelBoardLine.className = 'pixel-board-line';
+            divPixelBoard.appendChild(divPixelBoardLine);
+            for (j = 1; j <= boardSize; j += 1) {
+                let divPixel = document.createElement('div');
+                divPixel.className = 'pixel';
+                divPixelBoardLine.appendChild(divPixel);
+            }  
+        }
+        colorPixel();
+    }
+ } )
+};
+
+makeBoard();
+ 
  

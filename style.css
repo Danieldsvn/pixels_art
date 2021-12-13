@@ -15,8 +15,13 @@
     border: black solid 1px;
      display: inline-block; */
  /* }   */
- 
+ .color {
+     display: inline-block;
+ }
 
+#color-palett {
+    padding-top: 5px;
+}
 #pixel-board {
     margin-top: 10px;
 }
@@ -32,14 +37,23 @@
     margin-left: 1px;
     margin-bottom: -3px;
 }
-button {
+#clear-board {
     height: 15px;
     width: 50px;
     margin-top: 15px;
     margin-bottom: 10px;
-    display: flex;
+    display: flex; /*  https://pt.stackoverflow.com/questions/278978/como-centrar-texto-de-botao-verticalmente */
     justify-content: center;
     align-items: center;
     font-size: 12px;
 
+}
+
+#board-size {
+    margin-top: 10px;
+}
+
+#generate-board {
+    margin-left: 5px;
+    
 }
