@@ -36,7 +36,7 @@ colorsToChoose[3].innerText = "Azul";
 colorsToChoose[3].style.backgroundColor = 'blue';
 
 
-//Requisito 3
+//Requisito 3 e 6
 window.onload = blackSet();
 
 function blackSet() {
@@ -51,6 +51,9 @@ function blackSet() {
  let divPixelBoard = document.createElement('div');
  divPixelBoard.id = 'pixel-board';
  body.appendChild(divPixelBoard);
+
+
+// requisito 5
 
  // Cria elementos pixels 5x5
  function pixelsCreator() {
@@ -67,13 +70,17 @@ function blackSet() {
  }
  pixelsCreator();
 
-// requisito 5
 
+
+ // Requisito 6: (está junto com o requisito 3)
+
+ // Requisito 7
 
  // Prepara a seleção de cores para aplicar nos pixels.
+
  function changeColor() {    
-    for (let i = 0; i < colorsArray.length; i += 1) {   
-        colorsArray[i].addEventListener('click', function(event){
+    for (let i = 0; i < colorsToChoose.length; i += 1) {   
+        colorsToChoose[i].addEventListener('click', function(event){
         let colorSelected = document.querySelector('.selected');   
         colorSelected.className = 'color';
         event.target.className = 'color selected';        
@@ -81,6 +88,8 @@ function blackSet() {
     )
 }
 }; 
+
+// Requisito 8
 
 // Aplica cores nos pixels por clique conforme cor selecionada.
 changeColor();
@@ -98,9 +107,14 @@ function colorPixel() {
 };
 colorPixel();
 
+// Requisito 9
 // Cria botão que  limpa os pixels e o torna branco novamente.
 
-let button = document.getElementById('clear-board');
+
+let button = document.createElement('button');
+button.id = 'clear-board';  
+button.innerText = 'Limpar';
+divColorPalett.after(button);
 
 button.addEventListener('click', function() {
     let board = document.getElementsByClassName('pixel');
