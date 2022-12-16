@@ -22,17 +22,12 @@ for (let i = 1; i <= 4; i += 1) {
 }
 let colorsToChoose = document.getElementsByClassName('color');
 colorsToChoose[0].id = 'black';
-colorsToChoose[0].innerText = "Preto";
 colorsToChoose[0].style.backgroundColor = 'black';
-colorsToChoose[0].style.color = 'white';
 colorsToChoose[1].id = 'red';
-colorsToChoose[1].innerText = "Vermelho";
 colorsToChoose[1].style.backgroundColor = 'red';
 colorsToChoose[2].id = 'green';
-colorsToChoose[2].innerText = "Verde";
 colorsToChoose[2].style.backgroundColor = 'green';
 colorsToChoose[3].id = 'blue';
-colorsToChoose[3].innerText = "Azul";
 colorsToChoose[3].style.backgroundColor = 'blue';
 
 
